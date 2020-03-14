@@ -4,22 +4,31 @@
     {% endblock head %}
     {% block style %}
     {% endblock style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <style>
+    </style>
+    <script src="https://kit.fontawesome.com/4edf531116.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    <div class="w3-container w3-center w3-orange">
-      <span class="jb-font-size-60pts">{% for category,message in messages %}</span>
-      <div class="{{ category }}">{{ message }}</div><br>
+    <div class="elwarning">
+      <span class="elwarning-font">{% for category,message in messages %}{{ message }}</span>
       {% endfor %}
     </div>
-    
     {% endif %}
     {% endwith %} 
-    {% block content %}
-    {% endblock content %}
+
+    <div class="header">
+      <text class="bannerfont">Eusoffline</span></text>
+    </div>
+
+    <div class="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
     {% block script %}
     {% endblock script %}
 </body>

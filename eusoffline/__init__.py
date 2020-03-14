@@ -6,11 +6,12 @@ from flask_user import UserManager
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin
 from eusoffline.main.routes import main
+from eusoffline.ccapoints.routes import ccapoints
 
 login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
-from eusoffline.models import BaseUser
+from eusoffline.models import BaseUser, CCAMap
 
 @login_manager.user_loader
 def user_loader(user_id):
@@ -29,7 +30,9 @@ def create_app(config_class=Config):
     admin = Admin(app, name='Eusoff line', template_mode='bootstrap3')
 
     app.register_blueprint(main)
+    app.register_blueprint(ccapoints)
 
     admin.add_view(ModelView(BaseUser, db.session))
+    admin.add_view(ModelView(CCAMap, db.session))
 
     return app

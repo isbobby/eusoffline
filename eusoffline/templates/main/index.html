@@ -1,13 +1,65 @@
 {% extends 'layout.html' %}
-{% block head %}
 
+{% block head %}
 {% endblock head %}
 
+{% block style %}
+
+{% endblock style %}
 {% block content %}
+
 {% if current_user.is_authenticated %}
-hi
-<button><a href="{{ url_for('main.mainLogout') }}">Logout</a></h1></button>
+<div class="elmainContainer">
+    <div class="elmainContainerChild"> 
+        <div style="height:50; margin-top: 30px; margin-bottom: 20px;">
+            <i class="fas fa-calculator fa-8x"></i>
+        </div>
+        <a class="elink" href="{{ url_for('ccapoints.mainCheckPoint') }}">
+            <button class="elbutton">
+                View my CCA points
+            </button>
+        </a>
+    </div>
+    <div class="elmainContainerChild">
+        <div style="height:50; margin-top: 30px; margin-bottom: 20px;">
+            <i class="fas fa-vote-yea fa-8x"></i>
+        </div>
+        <a class="elink" href="#">
+            <button class="elbutton">
+                33rd JCRC Election
+            </button>
+        </a>
+    </div>
+    <div class="elmainContainerChild">
+        <div style="height:50; margin-top: 30px; margin-bottom: 20px;">
+            <i class="fas fa-clock fa-8x"></i>
+        </div>
+        <a class="elink" href="#">
+            <button class="elbutton">
+                Coming Soon
+            </button>
+        </a>
+    </div>
+</div>
+
+<a class="elink" href="{{ url_for('main.mainLogout') }}">
+    <button class="elbutton">
+        Logout
+    </button>
+</a>
+
 {% else %}
-<button><a href="{{ url_for('main.mainCheckMatric') }}">Login</a></h1></button>
+<div class="elloginbox">
+    <p>
+        <span class="elloginbox-label">Login to access eusoffline services</span>
+    </p>
+
+    <a class="elink" href="{{ url_for('main.mainCheckMatric') }}">
+        <button style="margin-top: 45px; width: 120px" class="elbutton">
+            Login
+        </button>
+    </a>
+</div>
 {% endif %}
+
 {% endblock content %}

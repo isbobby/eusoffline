@@ -4,7 +4,7 @@ from flask_login import login_user, current_user, logout_user
 
 from .forms import CheckMatricForm, LoginForm, CreatePasswordForm
 
-from eusoffline.models import BaseUser, CCAMap
+from eusoffline.models import BaseUser
 from eusoffline import db
 
 main = Blueprint('main', __name__)
@@ -115,14 +115,3 @@ def mainLogout():
     logout_user()
     return redirect(url_for('main.mainHome'))
 
-
-@main.route("/checkccapoint", methods=['GET'])
-def mainCheckPoint():
-    result = CCAMap.query.filter_by(matric=current_user.matric).all()
-    totalPoints = 0
-    if result:
-        for entries in result:
-            totalPoints += entries.points
-
-    return render_template('/main/checkccapoint.html', result=result,
-                           totalPoints=totalPoints)

@@ -3,9 +3,10 @@ content %}
 
 <form method="POST" action="">
   {{ form.hidden_tag() }}
-  <fieldset class="form-grop">
-    <div class="form-grop">
-      {{ form.matric.label(class="form-control-label") }}<br />
+  <div class="elform-grop">
+
+      {{ form.matric.label(class="elform-label") }}
+
       {% if form.matric.errors %} {{
       form.matric(class="form-control form-control-lg is-invalid") }}
       <div class="invalid-feedback">
@@ -13,16 +14,14 @@ content %}
         <span> {{ error }} </span>
         {% endfor %}
       </div>
+      
       {% else %}
-      <div class="jb-element-width-50 jb-margin-center">
-        {{ form.matric(class="form-control form-control-lg") }}
+      <div class="elform-input">
+        {{ form.matric(class="elform-input") }}
       </div>
       {% endif %}
-    </div>
-    <div class="">
-      {{ form.submit(class="")}}
-    </div>
-  </fieldset>
+      {{ form.submit(class="elbutton")}}
+  </div>
 </form>
 
 {% endblock content %}

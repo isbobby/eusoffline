@@ -3,9 +3,11 @@ content %}
 
 <form method="POST" action="">
   {{ form.hidden_tag() }}
-  <fieldset class="form-grop">
-    <div class="form-grop">
-      {{ form.matric.label(class="form-control-label") }}<br />
+    <div>
+      {{ form.matric.label(class="elform-label") }}
+    </div>
+
+    <div>
       {% if form.matric.errors %} {{
       form.matric(class="form-control form-control-lg is-invalid") }}
       <div class="invalid-feedback">
@@ -13,14 +15,20 @@ content %}
         <span> {{ error }} </span>
         {% endfor %}
       </div>
+    </div>
+
+    <div>
       {% else %}
-      <div class="jb-element-width-50 jb-margin-center">
-        {{ form.matric(class="form-control form-control-lg") }}
-      </div>
+        {{ form.matric(class="elform-input") }}
       {% endif %}
     </div>
-    <div class="form-grop">
-      {{ form.password.label(class="form-control-label") }}<br />
+
+
+    <div class="elform-group">
+      {{ form.password.label(class="elform-label") }}
+    </div>
+
+    <div>
       {% if form.password.errors %} {{
       form.password(class="form-control form-control-lg is-invalid") }}
       <div class="invalid-feedback">
@@ -28,16 +36,16 @@ content %}
         <span> {{ error }} </span>
         {% endfor %}
       </div>
+    </div>
+
+    <div class="elform-group">
       {% else %}
-      <div class="jb-element-width-50 jb-margin-center">
-        {{ form.password(class="form-control form-control-lg") }}
-      </div>
+        {{ form.password(class="elform-input") }}
       {% endif %}
     </div>
-    <div class="">
-      {{ form.submit(class="")}}
+    
+    <div class="elform-group">
+      {{ form.submit(class="elbutton")}}
     </div>
-  </fieldset>
 </form>
-
 {% endblock content %}

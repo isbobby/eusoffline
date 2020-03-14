@@ -1,0 +1,43 @@
+{% extends 'layout.html' %} {% block head %} {% endblock head %} {% block
+content %} 
+
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <fieldset class="form-grop">
+    <div class="form-grop">
+      {{ form.matric.label(class="form-control-label") }}<br />
+      {% if form.matric.errors %} {{
+      form.matric(class="form-control form-control-lg is-invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.matric.errors %}
+        <span> {{ error }} </span>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="jb-element-width-50 jb-margin-center">
+        {{ form.matric(class="form-control form-control-lg") }}
+      </div>
+      {% endif %}
+    </div>
+    <div class="form-grop">
+      {{ form.password.label(class="form-control-label") }}<br />
+      {% if form.password.errors %} {{
+      form.password(class="form-control form-control-lg is-invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+        <span> {{ error }} </span>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="jb-element-width-50 jb-margin-center">
+        {{ form.password(class="form-control form-control-lg") }}
+      </div>
+      {% endif %}
+    </div>
+    <div class="">
+      {{ form.submit(class="")}}
+    </div>
+  </fieldset>
+</form>
+
+{% endblock content %}

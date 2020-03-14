@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-<header>
+{% extends 'layout.html' %}
+{% block head %}
 
-</header>
-<body>
-    <h1>Welcome</h1>
-</body>
+{% endblock head %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+hi
+<button><a href="{{ url_for('main.mainLogout') }}">Logout</a></h1></button>
+{% else %}
+<button><a href="{{ url_for('main.mainCheckMatric') }}">Login</a></h1></button>
+{% endif %}
+{% endblock content %}

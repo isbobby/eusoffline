@@ -1,29 +1,3 @@
-.orange-0{
-    color:"#e59400"
-}
-.orange-1{
-    color:"#fea500"
-}
-.orange-2{
-    color:"#ffae19"
-}
-.orange-3{
-    color:"#ffb732"
-}
-.orange-4{
-    color:"#ffc04c"
-}
-.orange-5{
-    color:"#ffc965"
-}
-
-.gold-1{
-    color:"e6c200"
-}
-.gold-2{
-    color:"ffd700"
-}
-
 body {    
     margin: 0 !important;
     padding: 0 !important;
@@ -59,13 +33,6 @@ body {
     font-size: 24px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.content{
-    margin: auto;
-    padding: 50px;
-    /* width: 95%; */
-    text-align: center;
 }
 
 .bannerfont{
@@ -105,28 +72,64 @@ body {
     text-decoration: none;
 }
 
-.elform-label{
-    font-family: Arial, Helvetica, sans-serif;
-    padding:10px;
+@media screen and (min-width: 500px){
+.mainContainer{
+    width: "90%";
+    margin-bottom: 40px;
 }
 
-.elform-input{
-    width: 60%;
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.content{
     margin: auto;
-    padding: 30px;
-    
-}
-.elform-group{
+    padding: 50px;
+    /* width: 95%; */
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 10px;
 }
 
 .elloginbox{
-    height: 150px;
+    height: 120px;
     padding:20px;
+    width: 50%;
     background-color: #a2aaaf;
     border-radius: 12px;
+    margin: auto;
 }
 
 .elloginbox-label{
@@ -153,3 +156,183 @@ body {
     border-radius: 20px;
 }
 
+.elmainContainerPic{
+    height:120px; 
+    margin-top: 30px; 
+    margin-bottom: 20px
+}
+
+
+.elText{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:10px;
+    font-size: 20px;
+}
+
+.elicon{
+    font-size:120px;
+}
+
+.elform-label{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:10px;
+}
+
+.elform-input{
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    
+}
+.elform-group{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.eltablebutton{
+    background-color: #262626;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+}
+
+@media screen and (max-width: 499px){
+    .elloginbox{
+        margin: auto;
+        width: 50%;
+        height:150px;
+        padding:20px;
+        background-color: #a2aaaf;
+        border-radius: 12px;
+    }
+    
+    .elloginbox-label{
+        font-family: Arial, Helvetica, sans-serif;
+        padding:10px;
+        font-size: 25px;
+    }
+    
+    .elmainContainer{
+        width: 90%;
+        height: 300px;
+        text-align: center;
+        margin: auto;
+        /* display: flex; */
+        flex-wrap: nowrap;
+    }
+    
+    .elmainContainerChild{
+        width: 50%;
+        height: 150px;
+        background-color: #a2aaaf;
+        margin: auto;
+        margin-bottom: 20px;
+        text-align: center;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    
+    .elText{
+        font-family: Arial, Helvetica, sans-serif;
+        padding:10px;
+        font-size: 20px;
+    }
+
+    .elicon{
+        font-size:80px;
+    }
+
+    .content{
+        margin: auto;
+        padding-left: 10px;
+        padding-left: 10px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .elmainContainerPic{
+        height:50%; 
+        margin-bottom: 10px
+    }    
+    .elform-label{
+        font-family: Arial, Helvetica, sans-serif;
+        padding:10px;
+    }
+    
+    .elform-input{
+        width: 60%;
+        margin: auto;
+        padding: 15px;
+        
+    }
+    .elform-group{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .eltablebutton{
+        background-color: #262626;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+    
+    .mainContainer{
+        width: "70%";
+        margin-bottom: 40px;
+        margin:auto;
+    }
+    /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+}

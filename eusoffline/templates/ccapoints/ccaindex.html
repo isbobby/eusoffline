@@ -12,21 +12,21 @@
 <div class="elmainContainer">
     <div class="elmainContainerChild"> 
         <div class="elmainContainerPic">
-            <i class="fas fa-basketball-ball elicon"></i>
+            <i class="fas fa-calculator elicon"></i>
         </div>
-        <a class="elink" href="{{ url_for('cca.ccaHome') }}">
+        <a class="elink" href="{{ url_for('cca.ccaCheckPoint') }}">
             <button class="elbutton">
-                CCA Related
+                View my CCA points
             </button>
         </a>
     </div>
     <div class="elmainContainerChild">
         <div class="elmainContainerPic">
-            <i class="fas fa-vote-yea elicon"></i>
+            <i class="fas fa-sort-numeric-down elicon"></i>
         </div>
         <a class="elink" href="#">
             <button onclick="openComingSoon()" class="elbutton">
-                33rd JCRC Election
+                View top 200 residents
             </button>
         </a>
     </div>
@@ -40,19 +40,6 @@
             </button>
         </a>
     </div>
-</div>
-
-{% else %}
-<div class="elloginbox">
-    <p>
-        <span class="elText">Login to access eusoffline services</span>
-    </p>
-
-    <a class="elink" href="{{ url_for('main.mainCheckMatric') }}">
-        <button style="float: bottom; width: 120px" class="elbutton">
-            Login
-        </button>
-    </a>
 </div>
 {% endif %}
 

@@ -28,41 +28,36 @@ th, td {
 {% block content %}
 <div class="mainContainer">
     <div style="padding: 10px; background-color: #ccc4c1; border: 1px solid;">
-        <span class="elwarning-font">Hello <span class="orange-4">{{current_user.name}}</span>! Here is your CCA point break down</span>
+        <p><span class="elwarning-font">Hello! Here is your CCA point break down.</span></p>
+        <span class="elwarning-font" style="font-size: 20px;">Please also verify the information below and alert you CCA leader/JCRC if there is any error</span>
+    </div>
+    <div style="padding: 10px; background-color: #ccc4c1; border: 1px solid;">
+        <p class="elwarning-font">Name - {{current_user.name}}</p>
+        <p class="elwarning-font">Gender - {{gender}}</p>
+    </div>
     </div>
     {% if result %}    
     <table class="table"> 
         <tr>
             <th>CCA</th>
+            <th>Role</th>
             <th>Total Points</th>
         </tr>
         {% for entries in result %}
         <tr>
             <th>{{entries.cca}}</th>
+            <th>{{entries.role}}</th>
             <th>{{entries.points}}</th>
         </tr>
         {% endfor %}
-        <tr>
-            <th>Total -</th>
-            <th>{{totalPoints}}</th>
-        </tr>
     </table>
+    <div style="padding: 10px; background-color: #ccc4c1; border: 1px solid;">
+        <p class="elwarning-font">Total Point - {{totalPoints}}</p>
+    </div>
     {% else %}
     you've got no points this academic year...
     {% endif %}
 </div>
-
-<a class="elink" href="{{ url_for('main.mainHome') }}">
-    <button class="elbutton">
-        Home
-    </button>
-</a>
-
-<a class="elink" href="{{ url_for('main.mainLogout') }}">
-    <button class="elbutton">
-        Logout
-    </button>
-</a>
 {% endblock content %}
 {% block script %}
 {% endblock script %}

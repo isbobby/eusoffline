@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     {% block head %}
     {% endblock head %}
@@ -6,11 +8,52 @@
     {% endblock style %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    li text {
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+      background-color: #111;
+    }
     </style>
     <script src="https://kit.fontawesome.com/4edf531116.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <ul>
+      <li><a class="active" href="{{url_for('main.mainHome')}}">Home</a></li>
+      {% if  current_user.is_authenticated %}
+      <li style="float:right"><a href="{{url_for('main.mainLogout')}}">Logout</a></li>
+      <li style="float:right"><text>Hi {{current_user.name}}</text></li>
+      {% endif %}
+    </ul>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -29,6 +72,38 @@
       {% block content %}
       {% endblock content %}
     </div>
+
+    <div id="comingSoonModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p style="font-family: Arial, Helvetica, sans-serif;">Coming Soon!</p>
+      </div>
+    
+    </div>
     {% block script %}
     {% endblock script %}
+    <script>
+      var comingSoonModal = document.getElementById("comingSoonModal");
+      var span = document.getElementsByClassName("close")[0];
+      
+      //
+      function openComingSoon() {
+        comingSoonModal.style.display = "block"
+      }
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        comingSoonModal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == comingSoonModal) {
+          comingSoonModal.style.display = "none";
+        }
+      }
+
+    </script>
 </body>
+</html>

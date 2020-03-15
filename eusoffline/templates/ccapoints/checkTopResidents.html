@@ -1,0 +1,110 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+<style>
+.table{
+    border-collapse: collapse;
+    width: 80%;
+    margin:auto;
+    background-color: #ccc4c1;
+}
+
+
+@media screen and (min-width: 500px){
+    th, td {
+    text-align: center;
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+  }
+}
+
+@media screen and (max-width: 499px){
+    th, td {
+    text-align: center;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+  }
+}
+  
+  th {
+    color: #3e3e3c;
+  }</style>
+{% endblock style %}
+{% block content %}
+<div class="mainContainer">
+    <div style="margin: auto; width:80%; padding-top:10px; padding-bottom:10px; background-color: #ccc4c1;">
+        <span id="mh" class="elwarning-font" style=" display: block;" >Top 110 Residents by points (Male)</span>
+        <span id="fmh" class="elwarning-font" style="display: none;">Top 110 Residents by points (Female)</span>
+        <button class="eltablebutton" onclick="showFunction()">Change Gender</button>
+    </div>
+    
+    <table class="table" id="mt", style="display: table; margin:auto"> 
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Number Of CCA</th>
+            <th>Total Points</th>
+        </tr>
+            {% for Resident in topMaleResidents %}
+            <tr >
+                <th>{{Resident.index}}</th>
+                <th>{{Resident.name}}</th>
+                <th>{{Resident.ccacount}}</th>
+                <th>{{Resident.totalpoints}}</th>
+            </tr>
+            {% endfor %}
+    </table>
+    <table class="table" id="fmt", style="display: none;"> 
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Number Of CCA</th>
+            <th>Total Points</th>
+        </tr>
+        {% for Resident in topFemaleResidents %}
+            <tr>
+                <th>{{Resident.index}}</th>
+                <th>{{Resident.name}}</th>
+                <th>{{Resident.ccacount}}</th>
+                <th>{{Resident.totalpoints}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    function showFunction() {
+        var mh = document.getElementById("mh")
+        var fmh = document.getElementById("fmh")
+        var mt = document.getElementById("mt")
+        var mft = document.getElementById("mft")
+
+        if ( mh.style.display === "none" ){
+            mh.style.display = "block"
+        } else {
+            mh.style.display = "none"
+        }
+
+        if ( fmh.style.display === "none" ){
+            fmh.style.display = "block"
+        } else {
+            fmh.style.display = "none"
+        }
+
+        if ( mt.style.display === "none" ){
+            mt.style.display = "table"
+        } else {
+            mt.style.display = "none"
+        }
+
+        if ( fmt.style.display === "none" ){
+            fmt.style.display = "table"
+        } else {
+            fmt.style.display = "none"
+        }
+    }
+</script>
+{% endblock script %}

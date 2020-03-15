@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, flash, redirect, url_for
 
+import flask
+
 from flask_login import login_user, current_user, logout_user
 
 from .forms import CheckMatricForm, LoginForm, CreatePasswordForm
@@ -23,8 +25,10 @@ def mainCheckMatric():
 
     # Matric form validation
     if matric_form.validate_on_submit():
+        uppercase_input = matric_form.matric.data.upper()
+
         requesting_user = BaseUser.query.filter_by(
-            matric=matric_form.matric.data).first()
+            matric=uppercase_input).first()
 
         # if no such matric
         if (requesting_user is None):
@@ -87,22 +91,33 @@ def mainCreatepassword(username, matric):
 
     return render_template('/main/createPassword.html',
                            form=create_password_form,
-                           username="meh")
+                           username=username)
 
 
 @main.route("/login/<username>/<matric>", methods=['GET', 'POST'])
 def mainLogin(username, matric):
+
     login_form = LoginForm()
+
+    if (flask.request.method == 'GET'):
+        login_form.matric.data = matric
 
     # Matric form validation
     if login_form.validate_on_submit():
-        requesting_user = BaseUser.query.filter_by(
-            matric=login_form.matric.data).first()
+        uppercase_input = login_form.matric.data.upper()
 
-        # if no such matric
-        if (requesting_user.password == login_form.password.data):
+        requesting_user = BaseUser.query.filter_by(
+            matric=uppercase_input).first()
+
+        # wrong matric
+        if (requesting_user is None):
+            flash("Matric number not found")
+
+        # log in
+        elif (requesting_user.password == login_form.password.data):
             login_user(requesting_user)
             return redirect(url_for('main.mainHome'))
+        # wrong pin
         else:
             flash('Wrong password!', 'danger')
 
@@ -114,4 +129,3 @@ def mainLogin(username, matric):
 def mainLogout():
     logout_user()
     return redirect(url_for('main.mainHome'))
-

@@ -2,7 +2,7 @@ from eusoffline import db, create_app
 from eusoffline.models import BaseUser
 
 import pandas as pd
-userCSV = pd.read_csv("./matric3.csv")
+userCSV = pd.read_csv("./matric.csv")
 
 app = create_app()
 

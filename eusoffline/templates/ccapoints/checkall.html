@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+<style>
+.table{
+    border-collapse: collapse;
+    width: 80%;
+    margin:auto;
+    background-color: #ccc4c1;
+}
+
+
+@media screen and (min-width: 500px){
+    th, td {
+    text-align: center;
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+  }
+}
+
+@media screen and (max-width: 499px){
+    th, td {
+    text-align: center;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+  }
+}
+  
+  th {
+    color: #3e3e3c;
+  }</style>
+{% endblock style %}
+{% block content %}
+<div class="mainContainer">
+    <div style="margin: auto; width:80%; padding-top:10px; padding-bottom:10px; background-color: #ccc4c1;">
+        <span id="mh" class="elwarning-font" style=" display: block;" >All residents</span>
+    </div>
+    
+    <table class="table" style="display: table; margin:auto"> 
+        <tr>
+            <th>Index</th>
+            <th>Matric Number</th>
+            <th>Name</th>
+            <th>Number Of CCA</th>
+            <th>Total Points</th>
+        </tr>
+            {% for Resident in residents %}
+            <tr >
+                <th>{{Resident.index}}</th>
+                <th>{{Resident.matricno}}</th>
+                <th>{{Resident.name}}</th>
+                <th>{{Resident.ccacount}}</th>
+                <th>{{Resident.totalpoints}}</th>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock content %}
+{% block script %}
+{% endblock script %}

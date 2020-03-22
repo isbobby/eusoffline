@@ -22,54 +22,40 @@ def ccaCheckPoint():
         for entries in result:
             totalPoints += entries.points
 
-    gender = "Male"
-
-    if current_user.gender == "f":
-        gender = "Female"
-
     return render_template('/ccapoints/checkccapoint.html', result=result,
-                           totalPoints=totalPoints,
-                           gender=gender)
+                           totalPoints=totalPoints)
 
 
-@cca.route("/cca/checktopresidents", methods=['GET'])
-def ccaCheckTopResidents():
+@cca.route("/cca/viewall", methods=['GET'])
+def ccaViewAll():
     # contains matric, number of CCA and total points
-    TotalPointSummary = db.session.query(CCAMap.matric,
-                                         db.func.count(CCAMap.cca).label(
-                                             'Number of CCA'),
-                                         db.func.sum(CCAMap.points).label(
-                                             'Total Points')).group_by(
+    summary = db.session.query(CCAMap.matric,
+                               db.func.count(CCAMap.cca).label(
+                                   'Number of CCA'),
+                               db.func.sum(CCAMap.points).label(
+                                   'Total Points')).group_by(
         CCAMap.matric).all()
 
-    TotalPointSummary.sort(reverse=True, key=lambda x: x[2])
+    summary.sort(key=lambda x: x[2], reverse=True)
 
-    topMaleResidents = []
-    topFemaleResidents = []
-    MaleNumber = 1
-    FemaleNumber = 1
+    residentCount = 1
+    residents = []
+    for entry in summary:
 
-    # resident 0 is the matric number
-    for entry in TotalPointSummary:
-        resident = BaseUser.query.filter_by(matric=entry[0]).first()
-        newEntry = {
-            'name': resident.name,
-            'ccacount': entry[1],
-            'totalpoints': entry[2],
-            'index': 0
+        this_resident = BaseUser.query.filter_by(matric=entry[0]).first()
+
+        newResident = {
+            "index": residentCount,
+            "matricno": entry[0],
+            "name": this_resident.name,
+            "ccacount": entry[1],
+            "totalpoints": entry[2]
         }
 
-        # Gender check
-        if(resident.gender.lower() == "m" and MaleNumber < 110):
-            newEntry['index'] = MaleNumber
-            topMaleResidents.append(newEntry)
-            MaleNumber += 1
-        else:
-            if (FemaleNumber < 110):
-                newEntry['index'] = FemaleNumber
-                topFemaleResidents.append(newEntry)
-                FemaleNumber += 1
+        residents.append(newResident)
+        residentCount += 1
 
-    return render_template('/ccapoints/checkTopResidents.html',
-                           topMaleResidents=topMaleResidents,
-                           topFemaleResidents=topFemaleResidents)
+
+    return render_template('/ccapoints/checkall.html',
+                           residents=residents,
+                           residentCount=residentCount)

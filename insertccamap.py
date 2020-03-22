@@ -3,7 +3,7 @@ from eusoffline.models import CCAMap
 
 import math
 import pandas as pd
-CCACSV = pd.read_csv("./ccamap.csv")
+CCACSV = pd.read_csv("./ccapoints.csv")
 
 app = create_app()
 
@@ -23,6 +23,7 @@ with app.app_context():
         role = row[2]
         cca = row[1]
 
-        new_cca_entry = CCAMap(matric=matric, cca=cca, role=role, points=points)
+        new_cca_entry = CCAMap(matric=matric, cca=cca,
+                               role=role, points=points)
         db.session.add(new_cca_entry)
     db.session.commit()

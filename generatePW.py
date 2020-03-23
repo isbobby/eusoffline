@@ -5,7 +5,7 @@ userCSV = pd.read_csv("./matric.csv")
 
 
 def random_with_N_digits():
-    range_start = 1
+    range_start = 100000
     range_end = 999999
     return randint(range_start, range_end)
 

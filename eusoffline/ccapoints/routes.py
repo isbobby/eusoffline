@@ -1,8 +1,6 @@
 from flask import Blueprint, render_template
-
 from flask_login import current_user
-
-from eusoffline.models import CCAMap
+from eusoffline.models import CCAMap, TopResidents
 
 cca = Blueprint('cca', __name__)
 
@@ -23,6 +21,12 @@ def ccaCheckPoint():
     return render_template('/ccapoints/checkccapoint.html', result=result,
                            totalPoints=totalPoints)
 
+
+@cca.route("/cca/viewtopresidents", methods=['GET'])
+def ccaViewTopResidents():
+    residents = TopResidents.query.all()
+    return render_template('/ccapoints/checkTopResidents.html',
+                           residents=residents)
 
 # @cca.route("/cca/viewall", methods=['GET'])
 # def ccaViewAll():

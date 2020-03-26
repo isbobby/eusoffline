@@ -288,10 +288,10 @@ A0189540X,External CCA,Member,7
 A0189540X,Basketball F,Captain,15
 A0189540X,Touch Rugby F,Member,7
 A0189540X,Track F,Member,3
-A1089368H,EusoffWorks,Logs Head,15
-A1089368H,Summer,EW,2
+A0189368H,EusoffWorks,Logs Head,15
+A0189368H,Summer,EW,2
 A0189368H,EHOC,Progs Member,10
-a0189368h,RAG Comm,floats ,11
+A0189368H,RAG Comm,floats ,11
 A0189368H,EHDP,Sets Head 2,13
 A0189368H,EHDP,Dance 5,7
 A0189368H,CMC,Member,10
@@ -994,7 +994,6 @@ A0200846L,External CCA,Member,3
 A0200846L,Floorball M,Member,0
 A0200846L,Tennis M,Vice-Captain,10
 A0199481M,EHDP,Dance 5,7
-A0199481M,Floorball M,Member,1
 A0199481M,Football M,Member,7
 A0199481M,Softball,Member,6
 A0203309R,Amplitude,Acapella,1
@@ -1438,6 +1437,7 @@ A0205708H,HPB,Member,9
 A0205708H,EHDP,Dance 1,10
 A0205708H,Frisbee,Vice-Captain,18
 A0205708H,DU - JunKweh,Member,3
+A0205708H,External CCA,Member,6
 A0182657U,Softball,Captain,14
 A0200193W,EHDP,Dance 3,8
 A0200193W,CMC,Member,10
@@ -1451,6 +1451,7 @@ A0200193W,Squash M,Member,1
 A0200193W,Takraw,Member,0
 A0200193W,Table Tennis M,Member,0
 A0200193W,Volleyball M,Member,0
+A0200193W,Floorball M,Member,1
 A0199894X,Finance Committee,Member,7
 A0199894X,Audits,Member,5
 A0199894X,Football M,Member,10
@@ -1596,7 +1597,7 @@ A0167824W,Elderly Services,Member,5
 A0167824W,MINDS,Member,1
 A0167824W,SMC,Member (Logistics),10
 A0167824W,Elderly Services,Member,4
-A0167824W,MINDS,Member (Summer),1
+A0167824W,MINDS (summer),Member,1
 A0167824W,Baketball M,Member,13
 A0167824W,Swim M,Member,1
 A0167824W,Volleyball M,Member,1
@@ -1812,7 +1813,7 @@ A0204410A,Touch Rugby F,Member,0
 A0204410A,Track F,Captain,17
 A0204410A,Volleyball F,Member,0
 A0204410A,External CCA,Member,10
-A02024410A,EusoffWorks,Video Member,5
+A0204410A,EusoffWorks,Video Member,5
 A0203717L,Floorball F,Member,8
 A0203717L,Soccer F,Member,3
 A0190719X,EusoffWorks,Photo Member,6

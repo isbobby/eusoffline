@@ -27,3 +27,9 @@ class CCAMap(db.Model):
     cca = db.Column(db.String(255), primary_key=True)
     role = db.Column(db.String(255), primary_key=True)
     points = db.Column(db.Integer, primary_key=True)
+
+
+class TopResidents(db.Model):
+    __tablename__ = 'topresidents'
+    __table_args__ = {'extend_existing': True}
+    name = db.Column(db.String(255), primary_key=True)

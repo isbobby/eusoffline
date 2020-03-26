@@ -1,5 +1,5 @@
 from eusoffline import create_app, db
-from eusoffline.models import BaseUser, CCA, CCAMap
+from eusoffline.models import CCA, CCAMap, TopResidents
 from sqlalchemy.schema import DropTable
 from sqlalchemy.ext.compiler import compiles
 
@@ -12,7 +12,8 @@ def _compile_drop_table(element, compiler, **kwargs):
 
 
 with app.app_context():
-    BaseUser.__table__.drop(db.engine)
+    # BaseUser.__table__.drop(db.engine)
     CCAMap.__table__.drop(db.engine)
     CCA.__table__.drop(db.engine)
+    TopResidents.__table__.drop(db.engine)
     db.create_all()

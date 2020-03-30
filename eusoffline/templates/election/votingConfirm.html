@@ -1,0 +1,101 @@
+{% extends 'layout.html' %} {% block style %}
+<style>
+  @media screen and (min-width: 500px) {
+    .el-card {
+      box-shadow: 0 4px 8px 0 rgba(253, 225, 225, 0.2);
+      background-color: #fefefe;
+      transition: 0.3s;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 20px;
+      display: inline-flex;
+    }
+  }
+
+  @media screen and (max-width: 499px) {
+    .el-card {
+      box-shadow: 0 4px 8px 0 rgba(253, 225, 225, 0.2);
+      background-color: #fefefe;
+      transition: 0.3s;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
+
+  .el-card-form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fefefe;
+    transition: 0.3s;
+    width: 90%;
+    margin: auto;
+  }
+
+  .el-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .el-card-photo {
+    width: 20%;
+    margin: auto;
+  }
+  .el-card-description {
+    padding: 2px 16px;
+    text-align: center;
+    margin: auto;
+  }
+  .el-card-control-field {
+    padding: 16px;
+    text-align: center;
+    margin: auto;
+    display: inline-flex;
+  }
+  .el-multiple-choice {
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .el-multiple-choice .option {
+    background-color: black;
+  }
+</style>
+{% endblock style %} {% block content %}
+<div style="width: 70%; margin: auto;">
+  <h2 style="font-family: Arial, Helvetica, sans-serif;">Election Category</h2>
+  <h2 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+    {{ category }}
+  </h2>
+</div>
+
+{% for vote in display_vote %}
+<div class="el-card el-font">
+  {% if display_vote[vote].id == 3%}
+  <img
+    src="{{url_for('static', filename='resources/amos.jpg')}}"
+    alt="Avatar"
+    class="el-card-photo"
+  />
+  {% elif display_vote[vote].id == 1%}
+  <img
+    src="{{url_for('static', filename='resources/brenda.jpg')}}"
+    alt="Avatar"
+    class="el-card-photo"
+  />
+  {% elif display_vote[vote].id == 2%}
+  <img
+    src="{{url_for('static', filename='resources/jh.jpg')}}"
+    alt="Avatar"
+    class="el-card-photo"
+  />
+  {% endif %}
+  <div class="el-card-description">
+    <h4>{{vote}}</h4>
+    {{display_vote[vote].id}}
+    <h5>You voted {{ display_vote[vote].vote}} for this candidate.</h5>
+  </div>
+</div>
+{% endfor %} {% endblock content %}

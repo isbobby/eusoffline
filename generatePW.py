@@ -1,7 +1,7 @@
 from random import randint
 import pandas as pd
 
-userCSV = pd.read_csv("./matric.csv")
+userCSV = pd.read_csv("./newresidents.csv")
 
 
 def random_with_N_digits():
@@ -15,13 +15,13 @@ nameList = []
 passwordList = []
 
 for index, row in userCSV.iterrows():
-    nameList.insert(index, row[1])
+    nameList.insert(index, row[0])
     passwordList.insert(index, random_with_N_digits())
-    matricList.insert(index, row[0])
+    matricList.insert(index, row[1])
 
 userCSV["matric"] = matricList
 userCSV["name"] = nameList
 userCSV["password"] = passwordList
 
-userCSV.to_csv('ResidentPassword.csv', sep=',')
-userCSV.to_excel('ResidentPassword.xlsx')
+userCSV.to_csv('newResidentPassword.csv', sep=',')
+userCSV.to_excel('newResidentPassword.xlsx')

@@ -8,7 +8,7 @@
     {% endblock style %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <style>
-    ul {
+    .nav-ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -16,11 +16,11 @@
       background-color: #333;
     }
 
-    li {
+    .nav-li {
       float: left;
     }
 
-    li a {
+    .nav-li a {
       display: block;
       color: white;
       text-align: center;
@@ -39,7 +39,7 @@
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
+    .nav-li a:hover {
       background-color: #111;
     }
     </style>
@@ -47,11 +47,11 @@
 </head>
 
 <body>
-    <ul>
-      <li><a class="active" href="{{url_for('main.mainHome')}}">Home</a></li>
+    <ul class="nav-ul">
+      <li class="nav-li"><a class="active" href="{{url_for('main.mainHome')}}">Home</a></li>
       {% if  current_user.is_authenticated %}
-      <li style="float:right"><a href="{{url_for('main.mainLogout')}}">Logout</a></li>
-      <li style="float:right"><text>Hi {{current_user.name}}</text></li>
+      <li class="nav-li" style="float:right"><a href="{{url_for('main.mainLogout')}}">Logout</a></li>
+      <li class="nav-li" style="float:right"><text>Hi {{current_user.name}}</text></li>
       {% endif %}
     </ul>
 

@@ -12,47 +12,34 @@
 <div class="elmainContainer">
     <div class="elmainContainerChild"> 
         <div class="elmainContainerPic">
-            <i class="fas fa-basketball-ball elicon"></i>
+            <i class="fas fa-crown elicon"></i>
         </div>
-        <a class="elink" href="{{ url_for('cca.ccaHome') }}">
+        <a class="elink" href="{{ url_for('election.electionVoting', category='presidential', id='1', state='0') }}">
             <button class="elbutton">
-                CCA Related
+                Presidential Election
             </button>
         </a>
     </div>
     <div class="elmainContainerChild">
         <div class="elmainContainerPic">
-            <i class="fas fa-person-booth elicon"></i>
-        </div>
-        <a class="elink" href="{{url_for('election.electionrules')}}">
-            <button onclick="" class="elbutton">
-                General Election
-            </button>
-        </a>
-    </div>
-    <div class="elmainContainerChild">
-        <div class="elmainContainerPic">
-            <i class="fas fa-clock elicon"></i>
+            <i class="fas fa-chair elicon"></i>
         </div>
         <a class="elink" href="#">
             <button onclick="openComingSoon()" class="elbutton">
-                Coming Soon
+                JCRC Election
             </button>
         </a>
     </div>
-</div>
-
-{% else %}
-<div class="elloginbox">
-    <p>
-        <span class="elText">Login to access eusoffline services</span>
-    </p>
-
-    <a class="elink" href="{{ url_for('main.mainCheckMatric') }}">
-        <button style="float: bottom; width: 120px" class="elbutton">
-            Login
-        </button>
-    </a>
+    <div class="elmainContainerChild">
+        <div class="elmainContainerPic">
+            <i class="fas fa-house-user elicon"></i>
+        </div>
+        <a class="elink" href="#">
+            <button onclick="openComingSoon()" class="elbutton">
+                Block Head Election
+            </button>
+        </a>
+    </div>
 </div>
 {% endif %}
 

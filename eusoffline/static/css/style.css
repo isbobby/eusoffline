@@ -4,6 +4,10 @@ body {
     background-color: #e9eaec;
 }
 
+.el-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .header{
     justify-self: center;
     justify-content: center;
@@ -118,8 +122,7 @@ body {
 
 .content{
     margin: auto;
-    padding: 50px;
-    /* width: 95%; */
+    padding: 30px;
     text-align: center;
 }
 
@@ -253,7 +256,7 @@ body {
     .content{
         margin: auto;
         padding-left: 10px;
-        padding-left: 10px;
+        padding-right: 10px;
         padding-top: 20px;
         text-align: center;
     }
@@ -334,5 +337,4 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
-
 }

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %} 
+{% block style %}
+<style>
+    .el-ol{
+        background-color: #fefefe;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .el-ol .el-li{
+        padding: 10px;
+    }
+
+    .el-card {
+        box-shadow: 0 4px 8px 0 rgba(253, 225, 225, 0.2);
+        background-color: #fefefe;
+        transition: 0.3s;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 20px;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div 
+class="el-card"
+style="font-family: Arial, Helvetica, sans-serif;">
+<h1>
+  Welcome to Eusoff General Election 2019/20!
+</h1>
+    <ul class="el-ol">
+    <li  class="el-li">You are eliggible to vote (otherwise you can't even log in)</li>
+    <li class="el-li">Each person can either vote for all candidates or abstain from voting</li>
+    <li class="el-li">You can vote either yes or no for all candidates</li>
+    <li class="el-li">You can only vote once (obviously)</li>
+</ul>
+  
+
+<a href="{{ url_for('election.electionHome')}}">
+  <button onclick="" class="elbutton">
+    Okok let's go
+  </button>
+</a>
+</div>
+{% endblock content %}

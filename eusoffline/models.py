@@ -33,3 +33,22 @@ class TopResidents(db.Model):
     __tablename__ = 'topresidents'
     __table_args__ = {'extend_existing': True}
     name = db.Column(db.String(255), primary_key=True)
+
+
+class Candidates(db.Model):
+    __tablename__ = 'candidates'
+    __table_args__ = {'extend_existing': True}
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+
+class Votes(db.Model):
+    __tablename__ = 'votes'
+    __table_args__ = {'extend_existing': True}
+    voter = db.Column(db.String(50), db.ForeignKey(
+        'baseuser.matric'), primary_key=True)
+    target_id = db.Column(db.Integer, db.ForeignKey(
+        'candidates.id'), primary_key=True)
+    vote = db.Column(db.Integer)

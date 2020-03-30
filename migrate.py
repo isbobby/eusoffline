@@ -13,7 +13,7 @@ def _compile_drop_table(element, compiler, **kwargs):
 
 with app.app_context():
     # BaseUser.__table__.drop(db.engine)
-    CCAMap.__table__.drop(db.engine)
-    CCA.__table__.drop(db.engine)
-    TopResidents.__table__.drop(db.engine)
+    # CCAMap.__table__.drop(db.engine)
+    # CCA.__table__.drop(db.engine)
+    # TopResidents.__table__.drop(db.engine)
     db.create_all()
